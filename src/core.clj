@@ -41,7 +41,12 @@
             routes/duck
             routes/too-long
             routes/naughty
-            routes/lookup]))
+            routes/strike-format
+            routes/spoiler-format
+            routes/ipvgo
+            routes/endgame-welcome
+            routes/lookup
+            ]))
 
 (defn- event-enricher
   "Turns an event into a map with all relevant data."

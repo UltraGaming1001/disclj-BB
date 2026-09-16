@@ -56,7 +56,7 @@ Those are backticks ( \\` ), not quotes ( ' ). Found to the left of the 1 key on
 Those are pipe symbols ( | ). Found above the Enter key on many keyboards, and can be typed via [Shift + \\].")})
 
 (def strike-format
-  {:condition (fn [msg _] (re-matches "strike([ -]?through)? ?format" msg))
+  {:condition (fn [msg _] (re-matches #"strike([ -]?through)? ?format" msg))
    :result (fn [_ _] "To indicate outdated references/comments and avoid confusion, please strikethrough your text;
 \\~\\~outdated comment\\~\\~"
 "Those are tildes ( ~ ). Found to the left of the 1 key on many keyboards, and can be accessed via [Shift + \\`].")})
