@@ -17,7 +17,7 @@
    :result (fn [_ _]  "Nuh uh, that request is too long.")})
 
 (def robot
-  {:condition (fn [msg _] (or (= msg "bleep bloop") (= msg "bloop bleep") (= msg "beep boop") (= msg "boop beep")))
+  {:condition (fn [msg _] (or (re-matches "bl?eep ?bl?oop" msg) (re-matches "bl?oop ?bl?eep")))
    :result (fn [msg _] (string/join " " (-> msg (string/split #"\s") reverse)))})
 
 (def spam
@@ -54,19 +54,19 @@ Those are backticks ( \\` ), not quotes ( ' ). Found to the left of the 1 key on
 [.](https://muon.blog/botmedia/codeformat.png)")})
 
 (def spoiler-format
-  {:condition (fn [msg _] (re-matches #"spoiler ?format" msg))
-   :result (fn [_ _] "Please add spoiler tags to spoily things;
+  {:condition (fn [msg _] (re-matches #"spoiler( ?format)?" msg))
+   :result (fn [_ _] "Please add spoiler tags to spoil-y things;
 \\|\\| your spoiler here \\|\\|
 Those are pipe symbols ( | ). Found above the Enter key on many keyboards, and can be typed via [Shift + \\].")})
 
 (def strike-format
-  {:condition (fn [msg _] (re-matches #"strike([ -]?through)? ?format" msg))
+  {:condition (fn [msg _] (re-matches #"strike([ -]?through)?( ?format)?" msg))
    :result (fn [_ _] "To indicate outdated references/comments and avoid confusion, please strikethrough your text;
-\\~\\~outdated comment\\~\\~
+\\~\\~ outdated comment \\~\\~
 Those are tildes ( ~ ). Found to the left of the 1 key on many keyboards, and can be accessed via [Shift + \\`].")})
 
 (def long-code
-  {:condition (fn [msg _] (re-matches #"long ?code" msg))
+  {:condition (fn [msg _] (re-matches #"long( ?code)?" msg))
    :result (fn [_ _] "https://muon.blog/botmedia/longcode.png")})
 
 (def endgame-welcome
