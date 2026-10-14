@@ -49,12 +49,16 @@
    :result (fn [_ _] "Please format your code so it is readable;
 
 \\`\\`\\`js
-like this
+export async function main(ns) {
+  // like this
+}
 \\`\\`\\`
 
 The above gives:
 ```js
-like this
+export async function main(ns) {
+  // like this
+}
 ```
 Those are backticks ( \\` ), not quotes ( ' ). Found to the left of the 1 key on many keyboards[.](https://muon.blog/botmedia/codeformat.png)")})
 
