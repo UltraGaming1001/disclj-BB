@@ -146,7 +146,7 @@ You can change your mind and switch BitNodes at any time if you want, too! There
 If you have any questions, feel free to ask!" "To <#415207923506216971> with you!"))})
 
 (def check-pins
-  {:condition (fn [msg _] (rematches #"(check ?(the ?)?)?pins?" msg))
+  {:condition (fn [msg _] (re-matches #"(check ?(the ?)?)?pins?" msg))
    :result (fn [_ _] "📌 Check the pins!!")})
 
 (def persecution
