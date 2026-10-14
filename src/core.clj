@@ -33,6 +33,7 @@
             routes/strike-format
             routes/spoiler-format
             routes/long-code
+            routes/static-ram-parsing
             routes/endgame-welcome
             routes/check-pins
             routes/robot
