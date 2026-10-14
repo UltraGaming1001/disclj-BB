@@ -17,7 +17,7 @@
    :result (fn [_ _]  "Nuh uh, that request is too long.")})
 
 (def robot
-  {:condition (fn [msg _] (or (re-matches #"bl?eep ?bl?oop" msg) (re-matches #"bl?oop ?bl?eep")))
+  {:condition (fn [msg _] (or (re-matches #"bl?eep ?bl?oop" msg) (re-matches #"bl?oop ?bl?eep" msg)))
    :result (fn [msg _] (string/join " " (-> msg (string/split #"\s") reverse)))})
 
 (def spam
