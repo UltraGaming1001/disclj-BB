@@ -1,10 +1,9 @@
-(require '[clojure.java.io :as io])
-
 (ns routes
   (:gen-class)
   (:require
    [replies               :as r]
-   [clojure.string :as string]))
+   [clojure.string :as string]
+   [clojure.java.io :as io]))
 
 (def empty-mdn
   {:condition (fn [msg event] (and (= "" msg) (re-matches #"(?i)^!mdn.*" (:content event))))
