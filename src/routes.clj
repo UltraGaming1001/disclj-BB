@@ -94,7 +94,7 @@ Those are tildes ( ~ ). Found to the left of the 1 key on many keyboards, and ca
   {:condition (fn [msg _] (= msg "attempt"))
    :result (fn [_ _] 
             {:content "-# Originally written by E9Cipher:"
-             :files [io/file "files/static-ram-parsing.md"]})})
+             :files [(io/file "files/static-ram-parsing.md")]})})
 
 (def endgame-welcome
   {:condition (fn [msg _] (or (re-matches #"endgame( ?welcome)?" msg) (= msg "welcome") (= msg "welcome to endgame")))
