@@ -57,7 +57,9 @@
         ;; Pass the event to the router
         reply (router msg event)]
     ; alternate-comment these lines for testing purposes
-    (m/create-message! message-ch (:channel-id event) :content reply)))
+    (m/create-message! message-ch (:channel-id event)
+                                   :content (:content reply)
+                                   :files (:files reply))))
     ;(m/create-message! message-ch "1357304376330289233" :content reply)))
 
 (defn -main
