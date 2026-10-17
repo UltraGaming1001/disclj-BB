@@ -2,8 +2,7 @@
   (:gen-class)
   (:require
    [replies               :as r]
-   [clojure.string :as string]
-   [clojure.java.io :as io]))
+   [clojure.string :as string]))
 
 (def empty-mdn
   {:condition (fn [msg event] (and (= "" msg) (re-matches #"(?i)^!mdn.*" (:content event))))
@@ -94,7 +93,7 @@ Those are tildes ( ~ ). Found to the left of the 1 key on many keyboards, and ca
   {:condition (fn [msg _] (= msg "attempt"))
    :result (fn [_ _] 
             {:content "-# Originally written by E9Cipher:"
-             :files [(io/file "files/static-ram-parsing.md")]})})
+             :files ["files/static-ram-parsing.md"]})})
 
 (def endgame-welcome
   {:condition (fn [msg _] (or (re-matches #"endgame( ?welcome)?" msg) (= msg "welcome") (= msg "welcome to endgame")))
