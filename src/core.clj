@@ -50,10 +50,10 @@
             routes/naughty
             routes/lookup]))
 
-(defn- create-filemaps
-  "Takes a vector of filenames and turns it into a vector of {:filename <filename> :file (io/file <filename>)} maps."
+(defn- create-filesvector
+  "Takes a vector of filenames and turns it into a vector of (io/file <filename>) objects."
   [filenames]
-  (vec (for [filename filenames] {:name filename :file (io/file filename)})))
+  (mapv io/file filenames))
 
 (defn- event-enricher
   "Turns an event into a map with all relevant data."
@@ -65,7 +65,7 @@
     ; alternate-comment these lines for testing purposes
     (m/create-message! message-ch (:channel-id event)
                                    :content (:content reply)
-                                   :attachments (create-filemaps (:files reply)))))
+                                   :attachments (create-filesvector (:files reply)))))
     ;(m/create-message! message-ch "1357304376330289233" :content reply)))
 
 (defn -main
