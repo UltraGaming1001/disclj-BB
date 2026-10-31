@@ -44,6 +44,10 @@
   {:condition (fn [msg _] (re-matches #"zo[eë]" msg))
    :result (fn [_ _] {:files ["files/zoe.jpg"]})})
 
+(def long-code
+  {:condition (fn [msg _] (re-matches #"long( ?code)?" msg))
+   :result (fn [_ _] {:files ["files/long-code.png"]})})
+
 (def code-format
   {:condition (fn [msg _] (re-matches #"code ?format" msg))
    :result (fn [_ _] 
@@ -85,10 +89,6 @@ Those are pipe symbols ( | ). Found above the Enter key on many keyboards, and c
 The above gives:
 ~~ outdated comment ~~
 Those are tildes ( ~ ). Found to the left of the 1 key on many keyboards, and can be accessed via [Shift + \\`]."})})
-
-(def long-code
-  {:condition (fn [msg _] (re-matches #"long( ?code)?" msg))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/longcode.png"})})
 
 (def static-ram-parsing
   {:condition (fn [msg _] (= msg "attempt"))
