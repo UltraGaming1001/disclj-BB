@@ -6,7 +6,7 @@
 
 (def empty-mdn
   {:condition (fn [msg event] (and (= "" msg) (re-matches #"(?i)^!mdn.*" (:content event))))
-   :result (fn [_ _]  {:content "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting"})})
+   :result (fn [_ _]  {:content "<https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting>"})})
 
 (def empty-ns
   {:condition (fn [msg event] (and (= "" msg) (re-matches #"(?i)^!ns.*" (:content event))))
