@@ -56,7 +56,7 @@ Note that while `attempt` incurs the API cost, `hackAttempt` doesn't. Thus, addi
 ## But... how do I know the API keywords?
 It may be tedious to check all keywords on a blank script and check the static RAM every time.
 
-Instead, you just need to check whether your variable name turns [blue](https://muon.blog/botmedia/bluekeywords.png) in the in-game editor (or whatever color your syntax.markup is in the Editor Theme).
+Instead, you just need to check whether your variable name turns [blue](https://muon.blog/botmedia/blue-keywords.png) in the in-game editor (or whatever color your syntax.markup is in the Editor Theme).
 
 ## And what if I need this keyword?
 d0sboots added a specific NetScript function for that: `ns.ramOverride`. If you add it at the beginning of the `main(ns)` function and give it a number (say, 1.70, alluding to our previous example of using `attempt`), it will override the static RAM checker with the parameter as the total RAM cost of the script.

@@ -26,23 +26,23 @@
 
 (def yuri
   {:condition (fn [msg _] (= msg "yuri"))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/yuri.png"})})
+   :result (fn [_ _] {:files ["files/yuri.png"]})})
 
 (def poast-coad
   {:condition (fn [msg _] (re-matches #"poast ?coad" msg))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/poastcoad.png"})})
+   :result (fn [_ _] {:files ["files/poastcoad.png"]})})
 
 (def pspsps
   {:condition (fn [msg _] (re-find #"^ps(ps)+" msg))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/psps.png"})})
+   :result (fn [_ _] {:files ["files/psps.png"]})})
 
 (def conglats
   {:condition (fn [msg _] (re-find #"^cong(r|l)at(s|u(r|l)ations)?$" msg))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/conglats.gif"})})
+   :result (fn [_ _] {:files ["files/conglats.gif"]})})
 
 (def zoe
   {:condition (fn [msg _] (re-matches #"zo[eë]" msg))
-   :result (fn [_ _] {:content "https://muon.blog/botmedia/zoe.jpg"})})
+   :result (fn [_ _] {:files ["files/zoe.jpg"]})})
 
 (def code-format
   {:condition (fn [msg _] (re-matches #"code ?format" msg))

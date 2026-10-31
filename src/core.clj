@@ -62,6 +62,9 @@
         msg (-> event :content (string/replace #"(?i)^!(MDN|NS)\b" "") string/lower-case string/trim)
         ;; Pass the event to the router
         reply (router msg event)]
+        ;reply is a map with :content and :files keys, :content takes a string while :files takes a vector of filenames,
+        ;with the format of "files/<filename>", the file(s) must be placed inside the files folder of the project.
+        ;The file paths are with respect to the location of the project.clj file
     ; alternate-comment these lines for testing purposes
     (m/create-message! message-ch (:channel-id event)
                                    :content (:content reply)
