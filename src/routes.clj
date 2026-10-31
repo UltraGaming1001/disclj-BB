@@ -61,7 +61,8 @@ export async function main(ns) {
   // like this
 }
 ```
-Those are backticks ( \\` ), not quotes ( ' ). Found to the left of the 1 key on many keyboards[.](https://muon.blog/botmedia/codeformat.png)"})})
+Those are backticks ( \\` ), not quotes ( ' ). Found to the left of the 1 key on many keyboards."
+             :files ["files/code-format.png"]})})
 
 (def spoiler-format
   {:condition (fn [msg _] (re-matches #"spoiler( ?format)?" msg))
