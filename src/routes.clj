@@ -110,7 +110,10 @@ If you have any questions, feel free to ask!" "To <#415207923506216971> with you
 
 (def check-pins
   {:condition (fn [msg _] (re-matches #"(check ?(the ?)?)?pins?" msg))
-   :result (fn [_ _] {:content "📌 Check the pins!!"})})
+   :result (fn [_ _] {:content "📌 Check the pins!!
+   Video #1: For Desktop
+   Video #2: For Mobile"
+                      :files ["files/pins/pins-desktop.mp4", "files/pins/pins-mobile.mp4"]})})
 
 (def persecution
   {:condition (fn [msg _]
