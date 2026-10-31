@@ -4,6 +4,7 @@
    [routes :as routes]
    [clojure.string        :as string]
    [clojure.core.async    :as async]
+   [clojure.java.io :as io]
    [discljord.connections :as c]
    [discljord.messaging   :as m]))
 
@@ -49,6 +50,11 @@
             routes/naughty
             routes/lookup]))
 
+(defn- create-filesvector
+  "Takes a vector of filenames and turns it into a vector of java.io.File objects."
+  [filenames]
+  (mapv io/file filenames))
+
 (defn- event-enricher
   "Turns an event into a map with all relevant data."
   [event message-ch]
@@ -57,7 +63,9 @@
         ;; Pass the event to the router
         reply (router msg event)]
     ; alternate-comment these lines for testing purposes
-    (m/create-message! message-ch (:channel-id event) :content reply)))
+    (m/create-message! message-ch (:channel-id event)
+                                   :content (:content reply)
+                                   :attachments (create-filesvector (:files reply)))))
     ;(m/create-message! message-ch "1357304376330289233" :content reply)))
 
 (defn -main
